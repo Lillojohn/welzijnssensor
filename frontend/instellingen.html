@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instellingen</title>
+    <link href="Stylesheet/reset.css" rel="stylesheet"/>
+    <link href="Stylesheet/grid.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Rubik" rel="stylesheet">
+    <link href="Stylesheet/styles.css" rel="stylesheet"/>
+</head>
+<body class="section group">
+<nav class="span_1_of_12 col">
+    <ul>
+        <li>
+            <a href="index.html">
+                <img class="icon" src="Assets/house.png">
+                <p>Home</p>
+            </a>
+        </li>
+        <li>
+            <a href="gebruikers.html">
+                <img class="icon" src="Assets/user.png">
+                <p>Gebruikers</p>
+            </a>
+        </li>
+        <li>
+            <a href="instellingen.html">
+                <img class="icon" src="Assets/gear.png">
+                <p>Instellingen</p>
+            </a>
+        </li>
+    </ul>
+    <h1 class="uitloggen">Uitloggen</h1>
+</nav>
+<main class="span_11_of_12 col">
+    <section class="section group">
+        <div class="span_2_of_12 col"></div>
+        <section class="mainfeature span_8_of_12 col">
+            <h1>Standaard instellingen</h1>
+            <form>
+                <p class="section group">
+                    <label class="span_2_of_12 col" for="wc">WC:</label>
+                    <input class="span_7_of_12 col" id="wc" type="text" value="8" readonly />
+                    <button><img class="changeButton" src="Assets/change.png" /></button>
+                </p>
+                <p class="section group">
+                    <label class="span_2_of_12 col" for="douche">Douche:</label>
+                    <input class="span_7_of_12 col" id="douche" type="text" value="48" readonly />
+                    <button><img class="changeButton" src="Assets/change.png" /></button>
+                </p>
+                <p class="section group">
+                    <label class="span_2_of_12 col" for="afwas">Afwas:</label>
+                    <input class="span_7_of_12 col" id="afwas" type="text" value="20" readonly/>
+                    <button><img class="changeButton" src="Assets/change.png" /></button>
+                </p>
+                <p class="section group">
+                    <label class="span_2_of_12 col" for="waterdrinken">Water drinken:</label>
+                    <input class="span_7_of_12 col" id="waterdrinken" type="text" value="0,5" readonly/>
+                    <button><img class="changeButton" src="Assets/change.png" /></button>
+                </p>
+            </form>
+        </section>
+        <div class="span_2_of_12 col"></div>
+    </section>
+</main>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+<script src="Scripts/instellingen.js"></script>
+</body>
+</html>

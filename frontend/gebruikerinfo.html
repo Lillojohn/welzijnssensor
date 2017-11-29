@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gebruiker informatie</title>
+    <link href="Stylesheet/reset.css" rel="stylesheet"/>
+    <link href="Stylesheet/grid.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Rubik" rel="stylesheet">
+    <link href="Stylesheet/styles.css" rel="stylesheet"/>
+</head>
+<body class="section group">
+<nav class="span_1_of_12 col">
+    <ul>
+        <li>
+            <a href="index.html">
+                <img class="icon" src="Assets/house.png">
+                <p>Home</p>
+            </a>
+        </li>
+        <li>
+            <a href="gebruikers.html">
+                <img class="icon" src="Assets/user.png">
+                <p>Gebruikers</p>
+            </a>
+        </li>
+        <li>
+            <a href="instellingen.html">
+                <img class="icon" src="Assets/gear.png">
+                <p>Instellingen</p>
+            </a>
+        </li>
+    </ul>
+    <h1 class="uitloggen">Uitloggen</h1>
+</nav>
+<main class="span_11_of_12 col">
+    <section class="section group">
+        <div class="span_2_of_12 col"></div>
+        <section class="mainfeature span_8_of_12 col">
+            <h1>Gebruiker Gegevens</h1>
+            <section class="uniekeGebruikerBox">
+                <section class="uniekeGebruikerItem">
+                    <h2>Gegevens</h2>
+                    <form>
+                        <p class="section group">
+                            <label for="name" class="span_3_of_12 col">Naam:</label>
+                            <input id="name" class="span_7_of_12 col" type="text" value="Peter Visser" readonly/>
+                            <button><img class="changeButton" src="Assets/change.png" /></button>
+                        </p>
+                        <p class="section group">
+                            <label for="adres" class="span_3_of_12 col">Adres:</label>
+                            <input id="adres" class="span_7_of_12 col" value="Pieter de Hoochweg 24" type="text" readonly/>
+                            <button><img class="changeButton" src="Assets/change.png" /></button>
+                        </p>
+                        <p class="section group">
+                            <label for="telefoonnummer" class="span_3_of_12 col">Telefoonnummer:</label>
+                            <input id="telefoonnummer" class="span_7_of_12 col" value="010 33718234" type="text" readonly/>
+                            <button><img class="changeButton" src="Assets/change.png" /></button>
+                        </p>
+                    </form>
+                </section>
+                <section class="uniekeGebruikerItem">
+                    <h2>Meldingen</h2>
+                        <section class="meldingBox">
+                        <ul>
+                            <li class="melding section group">
+                                <section class="meldingnaam span_8_of_12 col"><p>Geen activiteit</p></section>
+                                <section class="span_4_of_12 col"><p>21-01-2017 18:00</p></section>
+                            </li>
+                            <li class="melding section group">
+                                <section class="meldingnaam span_8_of_12 col"><p>Blaasonsteking</p></section>
+                                <section class="span_4_of_12 col"><p>21-01-2017 14:00</p></section>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+                <section class="uniekeGebruikerItem">
+                    <h2>Water gebruik per dag.</h2>
+                    <canvas id="myChart" width="400" height="200"></canvas>
+
+                </section>
+                <section class="uniekeGebruikerItem">
+                    <h2>Acties vandaag</h2>
+                    <canvas id="actieChart" width="400" height="200"></canvas>
+                </section>
+                <section class="uniekeGebruikerItem">
+                    <h2>Instellingen</h2>
+                    <form>
+                        <p class="section group">
+                            <label class="span_2_of_12 col" for="wc">WC:</label>
+                            <input class="span_7_of_12 col" id="wc" type="text" value="10" readonly/>
+                            <button><img class="changeButton" src="Assets/change.png"/></button>
+                        </p>
+                        <p class="section group">
+                            <label class="span_2_of_12 col" for="douche">Douche:</label>
+                            <input class="span_7_of_12 col" id="douche" type="text" value="20" readonly/>
+                            <button><img class="changeButton" src="Assets/change.png"/></button>
+                        </p>
+                        <p class="section group">
+                            <label class="span_2_of_12 col" for="afwas">Afwas:</label>
+                            <input class="span_7_of_12 col" id="afwas" type="text" value="4" readonly/>
+                            <button><img class="changeButton" src="Assets/change.png"/></button>
+                        </p>
+                        <p class="section group">
+                            <label class="span_2_of_12 col" for="waterkoken">Water koken:</label>
+                            <input class="span_7_of_12 col" id="waterkoken" type="text" value="3" readonly/>
+                            <button><img class="changeButton" src="Assets/change.png"/></button>
+                        </p>
+                    </form>
+                </section>
+            </section>
+        </section>
+        <div class="span_2_of_12 col"></div>
+    </section>
+</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
+<script>
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ["0AM", "12PM"],
+            datasets: [{
+                label: "Week 47",
+                backgroundColor: 'rgb(179, 203, 230)',
+                borderColor: 'rgb(179, 203, 230)',
+                data: [10, 15, 14, 12, 18, 15, 13],
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+</script>
+<script src="Scripts/instellingen.js"></script>
+<script src="Scripts/gebruikersinfo.js"></script>
+</body>
+</html>

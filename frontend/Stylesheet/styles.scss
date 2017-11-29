@@ -1,0 +1,222 @@
+body {
+  background: #eaebe9;
+}
+
+main {
+  height: 100vh;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+nav {
+  h1, li {
+    color: #f8f9f7;
+  }
+  ul {
+    li {
+      a {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+      }
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+    }
+    margin-top: 20vh;
+    width: 100%;
+  }
+  .uitloggen {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  background: #002b50;
+  height: 100vh;
+  position: fixed;
+}
+
+.mainfeature {
+  h1 {
+    font-size: 30px;
+  }
+  margin-top: 20vh;
+}
+
+.mainfeature {
+  .meldingBox {
+    margin-top: 2vh;
+    max-height: 50vh;
+    border: #b3d0e6 8px solid;
+    overflow-y: auto;
+  }
+  .melding {
+    p:first-child {
+      margin-left: 10px;
+    }
+    a {
+      text-decoration: none;
+      display: block;
+      color: #f8f9f7;
+    }
+    button {
+      background: #b3d0e6;
+      border:none;
+    }
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 40px;
+  }
+  .melding:nth-child(even) {
+    background: #f8f9f7;
+  }
+  .melding:nth-child(odd) {
+    background: #dcdddb;
+  }
+}
+
+.mainfeature {
+  .gebruikerBox {
+    margin-top: 2vh;
+    height: 50vh;
+    border: #b3d0e6 8px solid;
+    overflow-y: auto;
+  }
+  .nieuweGebruikerButton {
+    position: absolute;
+    top: 50px;
+    right: 16%;
+    border: none;
+    height: 40px;
+    background: #b3d0e6;
+    color: #f8f9f7;
+    display: block;
+    width: 15%;
+  }
+  .gebruiker {
+    p:first-child {
+      margin-left: 10px;
+    }
+    a {
+      text-decoration: none;
+      display: block;
+      color: #f8f9f7;
+    }
+    button {
+      background: #b3d0e6;
+      border:none;
+    }
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 40px;
+  }
+  .gebruiker:nth-child(even) {
+    background: #f8f9f7;
+  }
+  .gebruiker:nth-child(odd) {
+    background: #dcdddb;
+  }
+}
+
+form {
+  p {
+    width: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 40px;
+    margin-top:5px !important;
+  }
+  input, label {
+    display: block;
+  }
+  input {
+    height: 100%;
+    background: #f8f9f7;
+    border:none;
+  }
+  input[readonly]{
+    background: #dcdddb;
+  }
+  button{
+    img {
+      height:15px;
+      width:15px;
+      margin-left: 10px;
+    }
+    border:none;
+    background: none;
+  }
+  display: block;
+  position: relative;
+  margin-top: 20px;
+}
+
+.nieuweGebruikerBox {
+  section {
+    margin-top: 20px;
+  }
+}
+
+.importeerButton {
+  background: #b3d0e6;
+  border: none;
+  height: 40px;
+  background: #b3d0e6;
+  color: #f8f9f7;
+  width: 15%;
+}
+
+.saveButton {
+  border: none;
+  height: 40px;
+  background: #b3d0e6;
+  color: #f8f9f7;
+  width: 15%;
+  margin-top: 20px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.uniekeGebruikerBox {
+  .uniekeGebruikerItem {
+    margin-top: 50px;
+  }
+}
+
+// Fonts
+
+h1 {
+  font-family: 'Rubik', sans-serif;
+}
+
+p, li, h2 {
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  font-weight: bold;
+}
