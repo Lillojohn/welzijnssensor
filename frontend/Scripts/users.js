@@ -39,7 +39,7 @@ function addUser(e){
 
     $.ajax({
         type: "POST",
-        url: 'http://localhost:3000/user',
+        url: 'http://95.85.46.251/user',
         data: {
             address: adres
         }
