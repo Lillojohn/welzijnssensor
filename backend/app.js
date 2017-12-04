@@ -33,16 +33,11 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-// connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
-//     if (error) throw error;
-//     console.log('The solution is: ', results[0].solution);
-// });
-
 var zorgdag = function (clientId, res) {
     client = clientId;
-    connection.query("SELECT * FROM zorgdag WHERE client =  ?", client,function (error, results, fields) {
+    connection.query("SELECT * FROM zorgdag WHERE client=? AND day=1", client, function (error, results, fields) {
         if (error) throw error;
-        res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+        res.send({"status": 200, "error": null, "response": results});
     });
 };
 

@@ -21,6 +21,12 @@
         url: 'http://95.85.46.251/activeiten/' + userId,
         success: activeitenAjax
     });
+
+    $.ajax({
+        type: "GET",
+        url: 'http://95.85.46.251/zorgdag/' + userId,
+        success: zorgdagAjax
+    });
 })();
 
 function userAjax(data){
@@ -32,9 +38,7 @@ function buildTemplate(data){
 }
 
 function addListContent(data){
-    $('#name').val(data[0].name);
     $('#adres').val(data[0].address);
-    $('#telefoonnummer').val(data[0].phonenumber);
 }
 
 function meldingAjax(data){
@@ -71,9 +75,6 @@ function buildActiveitenTemplate(data){
 }
 
 function addActiviteiten(data){
-
-    console.log(data);
-
     var actiectx = document.getElementById("actieChart").getContext('2d');
     var actiechart = new Chart(actiectx, {
         // The type of chart we want to create
@@ -93,4 +94,12 @@ function addActiviteiten(data){
         // Configuration options go here
         options: {}
     });
+}
+
+function zorgdagAjax(data){
+    addZorgdag(data.response);
+}
+
+function addZorgdag(data){
+    console.log(data)
 }
