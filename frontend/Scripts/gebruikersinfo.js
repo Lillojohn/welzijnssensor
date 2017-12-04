@@ -101,5 +101,39 @@ function zorgdagAjax(data){
 }
 
 function addZorgdag(data){
-    console.log(data)
+
+    let labels = [];
+    for(let i = 0; i < data.length; i++){
+        if(data[i].water != 0){
+            labels.push(data[i].time);
+        } else {
+            labels.push("");
+        }
+
+    }
+
+    let dataArray = [];
+    for(let i = 0; i < data.length; i++){
+        dataArray.push(data[i].water);
+    }
+
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Week 47",
+                backgroundColor: 'rgb(179, 203, 230)',
+                borderColor: 'rgb(179, 203, 230)',
+                data: dataArray,
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
 }
