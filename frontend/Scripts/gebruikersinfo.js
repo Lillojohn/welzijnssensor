@@ -5,20 +5,20 @@
 
     $.ajax({
         type: "GET",
-        url: 'http://localhost:3000/user/' + userId,
+        url: 'http://95.85.46.251/user/' + userId,
         success: userAjax
     });
 
 
     $.ajax({
         type: "GET",
-        url: 'http://localhost:3000/meldingen/' + userId,
+        url: 'http://95.85.46.251/meldingen/' + userId,
         success: meldingAjax
     });
 
     $.ajax({
         type: "GET",
-        url: 'http://localhost:3000/activeiten/' + userId,
+        url: 'http://95.85.46.251/activeiten/' + userId,
         success: activeitenAjax
     });
 })();

@@ -78,12 +78,6 @@ nav {
     justify-content: center;
     height: 40px;
   }
-  .melding:nth-child(even) {
-    background: #f8f9f7;
-  }
-  .melding:nth-child(odd) {
-    background: #dcdddb;
-  }
 }
 
 .mainfeature {
@@ -205,6 +199,30 @@ button {
   .uniekeGebruikerItem {
     margin-top: 50px;
   }
+}
+
+.color1 {
+  color: #67bff1;
+}
+
+.color2 {
+  color: #c283d5;
+}
+
+.color3 {
+  color: #853b38;
+}
+
+.color4 {
+  color: #f1e66b;
+}
+
+.background0 {
+  background: #b11319;
+}
+
+.background1 {
+  background: #f8f9f7;
 }
 
 // Fonts

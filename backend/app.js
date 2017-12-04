@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
+var urlencodedparser = bodyParser.urlencoded({extended:false})
 
 // Add headers
 app.use(function (req, res, next) {
@@ -59,8 +61,10 @@ var userGet = function (clientId, res) {
     });
 };
 
-var userPost = function (res) {
-    connection.query('INSERT INTO zorgusers (name, address, postalcode, phonenumber) VALUES (?,?,?,?)', ['a','b','c','d'], function (error, results, fields) {
+var userPost = function (req, res) {
+    let address = req.body.address;
+
+    connection.query('INSERT INTO zorgusers (address) VALUES (?)', [address], function (error, results, fields) {
         if (error) throw error;
         res.send({"status": 200, "error": null, "response": results});
     });
@@ -110,8 +114,8 @@ app.get('/user/:id', function (req, res) {
     userGet(req.params.id ,res);
 });
 
-app.post('/user', function (req, res) {
-    userPost();
+app.post('/user', urlencodedparser, function (req, res) {
+    userPost(req, res);
 });
 
 app.get('/zorgdag/:id', function (req, res) {
