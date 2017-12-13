@@ -1,7 +1,7 @@
 (function(){
     $.ajax({
         type: "GET",
-        url: 'http://95.85.46.251/users',
+        url: 'http://188.226.175.24/users',
         success: userAjax
     });
 

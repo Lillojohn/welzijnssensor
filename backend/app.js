@@ -190,6 +190,12 @@ const alleClientenMetZorgdagen = function(){
     return users;
 };
 
+const changeStatusMelding = function(id){
+    connection.query('UPDATE zorg_meldingen_persoon SET status = 1 WHERE client_id', id, function (error, results, fields) {
+
+    });
+};
+
 app.get('/activeiten/:id', function (req, res) {
     activeiten(req.params.id, res);
 });
@@ -220,6 +226,10 @@ app.get('/zorgdag/:id', function (req, res) {
 
 app.get('/checkmeldingen', function (req, res) {
     checkMeldingen();
+});
+
+app.post('/changestatus/:id', function(req, res){
+    changeStatusMelding(req.params.id);
 });
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));

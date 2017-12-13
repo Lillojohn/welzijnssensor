@@ -5,26 +5,26 @@
 
     $.ajax({
         type: "GET",
-        url: 'http://95.85.46.251/user/' + userId,
+        url: 'http://188.226.175.24/user/' + userId,
         success: userAjax
     });
 
 
     $.ajax({
         type: "GET",
-        url: 'http://95.85.46.251/meldingen/' + userId,
+        url: 'http://188.226.175.24/meldingen/' + userId,
         success: meldingAjax
     });
 
     $.ajax({
         type: "GET",
-        url: 'http://95.85.46.251/activeiten/' + userId,
+        url: 'http://188.226.175.24/activeiten/' + userId,
         success: activeitenAjax
     });
 
     $.ajax({
         type: "GET",
-        url: 'http://95.85.46.251/zorgdag/' + userId,
+        url: 'http://188.226.175.24/zorgdag/' + userId,
         success: zorgdagAjax
     });
 })();
@@ -47,6 +47,7 @@ function meldingAjax(data){
 
 function buildMessageTemplate(data){
     deleteListContent();
+    changeStatus(data);
     addMessageListContent(data);
 }
 
@@ -54,14 +55,20 @@ function deleteListContent(){
     $('.meldingBox ul').empty();
 }
 
+function changeStatus(data){
+    for(var i = 0; i < data.length; i++){
+        $.ajax({
+            type: "POST",
+            url: 'http://188.226.175.24/changestatus/' + data[i].melding_persoon_id
+        });
+    }
+}
+
 function addMessageListContent(data) {
     for(var i = 0; i < data.length; i++){
-        $('.meldingBox ul').append("<li class='melding section group'>" +
+        $('.meldingBox ul').append("<li class='melding section group color"+ data[i].melding_id+" background"+ data[i].status+"'>" +
             "<section class='meldingnaam span_6_of_12 col'><p>"+ data[i].melding_naam+"</p></section>" +
             "<section class='span_4_of_12 col'><p>"+ data[i].date.substring(0, 9) +" "+ data[i].time +"</p></section>" +
-            "<section class='span_2_of_12 col'>" +
-            "<button><a href='gebruikerinfo.html'>info</a></button>" +
-            "</section>" +
             "</li>")
     }
 }
