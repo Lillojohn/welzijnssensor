@@ -191,7 +191,8 @@ const alleClientenMetZorgdagen = function(){
 };
 
 const changeStatusMelding = function(id){
-    connection.query('UPDATE zorg_meldingen_persoon SET status = 1 WHERE client_id', id, function (error, results, fields) {
+
+    connection.query('UPDATE zorg_meldingen_persoon SET status = 1 WHERE client_id = ?', id, function (error, results, fields) {
 
     });
 };

@@ -25,8 +25,8 @@ function addListContent(data){
         "<section class='meldingnaam span_6_of_12 col'><p>"+ data[i].melding_naam+"</p></section>" +
         "<section class='span_4_of_12 col'><p>"+ data[i].date.substring(0, 9) +" "+ data[i].time +"</p></section>" +
         "<section class='span_2_of_12 col'>" +
-        "<button><a href='gebruikerinfo.html?user='"+ data[i].client_id +"'>info</a></button>" +
+        "<button><a href='gebruikerinfo.html?user="+ data[i].client_id +"'>info</a></button>" +
         "</section>" +
-        "</li>")
+        "</li>");
     }
 }
