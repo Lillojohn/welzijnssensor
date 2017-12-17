@@ -13,6 +13,7 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "mysql": "^2.15.0",
+    "nodemailer": "^4.4.1",
     "tedious": "^2.0.0"
   }
 }

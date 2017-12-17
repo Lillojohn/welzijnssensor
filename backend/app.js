@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const urlencodedparser = bodyParser.urlencoded({extended:false})
+const urlencodedparser = bodyParser.urlencoded({extended:false});
+const nodemailer = require('./nodemailer.js');
 
 // Add headers
 app.use(function (req, res, next) {
@@ -121,7 +122,7 @@ const checkToiletMelding = function(user, waterGemiddelde){
         if(results[0].TotalWater === 1 || results[0].TotalWater === 2){
             InsertMelding(2,user);
         }
-        if(waterGemiddelde * 1.75 > results[0].TotalWater &&  waterGemiddelde * 2.5 < results[0].TotalWater){
+        if(waterGemiddelde * 1.33 > results[0].TotalWater &&  waterGemiddelde * 1.66 < results[0].TotalWater){
             InsertMelding(1,user);
         }
         if(waterGemiddelde * 2.5 > results[0].TotalWater){
@@ -138,11 +139,16 @@ const checkToiletMelding = function(user, waterGemiddelde){
 const check5DagenGeenDoucheMelding = function(){
     users.map(x => {
         userDay = [33] //Mag NIet harcoded zijn!!!
-        connection.query('SELECT * FROM `zorgdag` WHERE client=? GROUP BY day ORDER BY day DESC LIMIT 1', x, function (error, results, fields) {
-            // results.map(x => userDay.push(x));
-        });
-
-        connection.query('SELECT SUM(water) as TotalWater FROM `zorgdag` WHERE client=? AND day=? AND water > 7 AND water < 9', [x, userDay] , function (error, results, fields) {
+        connection.query('SELECT *\n' +
+            'FROM ( SELECT *\n' +
+            '      FROM `zorgdag` \n' +
+            '      WHERE client=?\n' +
+            '      AND day > ? - 5\n' +
+            '      AND water > 35\n' +
+            ') as t1\n' +
+            '\n' +
+            'GROUP BY day', [x, userDay], function (error, results, fields) {
+            InsertMelding(4,x);
         });
     })
 };
@@ -211,6 +217,7 @@ app.get('/meldingen/:id', function (req, res) {
 
 app.get('/users', function (req, res) {
     usersGet(res);
+    nodemailer.SendMail();
 });
 
 app.get('/user/:id', function (req, res) {

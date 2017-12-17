@@ -43,14 +43,25 @@
                     <form>
                         <p class="section group">
                             <label for="adres" class="span_3_of_12 col">Adres:</label>
-                            <input id="adres" class="span_7_of_12 col" value="Pieter de Hoochweg 24" type="text" readonly/>
-                            <button><img class="changeButton" src="Assets/change.png" /></button>
+                            <input id="adres" class="span_7_of_12 col" value="Pieter de Hoochweg 24" type="text"
+                                   readonly/>
+                            <button><img class="changeButton" src="Assets/change.png"/></button>
+                        </p>
+                        <p class="section group">
+                            <label for="vakantie" class="span_3_of_12 col">Vakantie:</label>
+                            <input type="radio" id="contactChoice1"
+                                   name="vakantie" value="ja">
+                            <label for="contactChoice1">Ja</label>
+
+                            <input type="radio" id="contactChoice2"
+                                   name="vakantie" value="nee">
+                            <label for="contactChoice2">Nee</label>
                         </p>
                     </form>
                 </section>
                 <section class="uniekeGebruikerItem">
                     <h2>Meldingen</h2>
-                        <section class="meldingBox">
+                    <section class="meldingBox">
                         <ul>
                             <li class="melding section group">
                                 <section class="meldingnaam span_8_of_12 col"><p>Geen activiteit</p></section>
@@ -105,7 +116,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
 </script>
-<script src="Scripts/instellingen.js"></script>
+
+<script src = "Scripts/instellingen.js" ></script>
 <script src="Scripts/gebruikersinfo.js"></script>
 </body>
 </html>
