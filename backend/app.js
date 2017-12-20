@@ -125,7 +125,7 @@ const checkToiletMelding = function(user, waterGemiddelde){
         if(waterGemiddelde * 1.33 > results[0].TotalWater &&  waterGemiddelde * 1.66 < results[0].TotalWater){
             InsertMelding(1,user);
         }
-        if(waterGemiddelde * 2.5 > results[0].TotalWater){
+        if(waterGemiddelde * 1.66 > results[0].TotalWater){
             InsertMelding(6,user);
         }
         if(results[0].TotalWater === 0){
