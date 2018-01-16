@@ -19,7 +19,7 @@
     $.ajax({
         type: "GET",
         url: 'http://188.226.175.24/activeiten/' + userId,
-        success: activeitenAjax
+        success: instellingenAjax
     });
 
     $.ajax({
@@ -48,7 +48,7 @@ function meldingAjax(data){
 
 function buildMessageTemplate(data){
     deleteListContent();
-    changeStatus(data);
+    // changeStatus(data);
     addMessageListContent(data);
 }
 
@@ -74,34 +74,17 @@ function addMessageListContent(data) {
     }
 }
 
-function activeitenAjax(data){
-    buildActiveitenTemplate(data.response);
+function instellingenAjax(data){
+    buildInstellingenTemplate(data.response);
 }
 
-function buildActiveitenTemplate(data){
-    addActiviteiten(data);
+function buildInstellingenTemplate(data){
+    addInstellingen(data);
 }
 
-function addActiviteiten(data){
-    var actiectx = document.getElementById("actieChart").getContext('2d');
-    var actiechart = new Chart(actiectx, {
-        // The type of chart we want to create
-        type: 'bar',
-
-        // The data for our dataset
-        data: {
-            labels: ["Toilet gebruik per dag", "Gem liter gebruik toilet", "Douchte gebruik per dag", "Liters de hele dag"],
-            datasets: [{
-                label: "Vandaag",
-                backgroundColor: 'rgb(179, 203, 230)',
-                borderColor: 'rgb(179, 203, 230)',
-                data: [data[0].avg_toilet_per_day, data[0].avg_litre_per_toiler, data[0].avg_shower_per_day, data[0].avg_litre_per_day],
-            }]
-        },
-
-        // Configuration options go here
-        options: {}
-    });
+function addInstellingen(data){
+    $('#wc').val(data[0].wc);
+    $('#douche').val(data[0].douche);
 }
 
 function zorgdagAjax(data){

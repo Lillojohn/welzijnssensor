@@ -203,6 +203,19 @@ const changeStatusMelding = function(id, res){
     });
 };
 
+const changeInstellingen = function(parsams, res){
+    // wc = params.wc;
+    // douche = params.douche;
+    // client = params.id;
+
+    res.send(params)
+    // connection.query('UPDATE zorg_persoon SET wc = ?, douche = ? WHERE client_id = ?',[wc, douche, client], function (error, results, fields) {
+    //     if (error) throw error;
+    //     res.send({"status": 200, "error": null, "response": results});
+    // });
+};
+
+
 app.get('/activeiten/:id', function (req, res) {
     activeiten(req.params.id, res);
 });
@@ -238,6 +251,10 @@ app.get('/checkmeldingen', function (req, res) {
 
 app.post('/changestatus/:id', function(req, res){
     // changeStatusMelding(req.params.id, res);
+});
+
+app.post('/changeinstellingen/:id', function(req, res){
+    changeInstellingen(req.params, res);
 });
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
