@@ -208,7 +208,7 @@ const changeInstellingen = function(parsams, res){
     // douche = params.douche;
     // client = params.id;
 
-    res.send(parsams)
+    res.send(parsams.doe);
     // connection.query('UPDATE zorg_persoon SET wc = ?, douche = ? WHERE client_id = ?',[wc, douche, client], function (error, results, fields) {
     //     if (error) throw error;
     //     res.send({"status": 200, "error": null, "response": results});
