@@ -209,8 +209,8 @@ const changeInstellingen = function(req, res){
     douche = req.body.douche;
 
     if(
-        wc !== "" &&
-        douche !== ""
+        wc === true &&
+        douche === true
     ){
         res.send("wc+douche");
         // connection.query('UPDATE zorg_persoon SET wc = ?, douche = ? WHERE client_id = ?',[wc, douche, client], function (error, results, fields) {
@@ -219,8 +219,8 @@ const changeInstellingen = function(req, res){
         // });
 
     } else if (
-        wc !== "" &&
-        douche === ""
+        wc === true &&
+        douche === false
     ){
         res.send("wc");
         // connection.query('UPDATE zorg_persoon SET wc = ? WHERE client_id = ?',[wc, client], function (error, results, fields) {
@@ -229,8 +229,8 @@ const changeInstellingen = function(req, res){
         // });
 
     } else if (
-        wc === "" &&
-        douche !== ""
+        wc === false &&
+        douche === true
     ){
         res.send("douche");
         // connection.query('UPDATE zorg_persoon SET douche = ? WHERE client_id = ?',[douche, client], function (error, results, fields) {
