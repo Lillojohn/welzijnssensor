@@ -235,7 +235,6 @@ const changeInstellingen = function(req, res){
             res.send({"status": 200, "error": null, "response": results});
         });
     }
-
 };
 
 
@@ -276,7 +275,7 @@ app.post('/changestatus/:id', function(req, res){
     // changeStatusMelding(req.params.id, res);
 });
 
-app.post('/changeinstellingen/:id', jsonparser, function(req, res){
+app.post('/changeinstellingen', jsonparser, function(req, res){
     changeInstellingen(req, res);
 });
 
