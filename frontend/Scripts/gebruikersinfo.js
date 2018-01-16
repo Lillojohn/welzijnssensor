@@ -38,6 +38,7 @@ function buildTemplate(data){
 }
 
 function addListContent(data){
+    $('#naam').val(data[0].name);
     $('#adres').val(data[0].address);
 }
 

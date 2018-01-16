@@ -24,7 +24,8 @@ function deleteListContent(){
 function addListContent(data){
     for(var i = 0; i < data.length; i++){
         $('.gebruikerBox ul').append("<li class='gebruiker section group'>" +
-            "<section class='gebruikeradres span_10_of_12 col'><p>"+ data[i].address +"</p></section>" +
+            "<section class='gebruikernaam span_4_of_12 col'><p>"+ data[i].name +"</p></section>" +
+            "<section class='gebruikeradres span_6_of_12 col'><p>"+ data[i].address +"</p></section>" +
             "<section class='span_2_of_12 col'>" +
             "<button><a href='gebruikerinfo.html?user="+ data[i].client_id +"'>info</a></button>" +
             "</section>" +

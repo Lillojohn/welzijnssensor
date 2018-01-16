@@ -237,7 +237,7 @@ app.get('/checkmeldingen', function (req, res) {
 });
 
 app.post('/changestatus/:id', function(req, res){
-    changeStatusMelding(req.params.id, res);
+    // changeStatusMelding(req.params.id, res);
 });
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));

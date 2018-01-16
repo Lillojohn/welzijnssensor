@@ -33,7 +33,7 @@ nav {
     position: absolute;
     bottom: 20px;
     width: 100%;
-    text-align: center;
+  text-align: center;
   }
   background: #002b50;
   height: 100vh;
@@ -77,6 +77,7 @@ nav {
     -ms-flex-pack: center;
     justify-content: center;
     height: 40px;
+    background: #ffffff;
   }
 }
 
@@ -217,12 +218,28 @@ button {
   color: #f1e66b;
 }
 
+.color7 {
+  background: #b12d2c !important;
+}
+
 .background0 {
-  background: #b11319;
+
 }
 
 .background1 {
   background: #f8f9f7;
+}
+
+.logo {
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  position: fixed;
+  bottom: 30px;
+  right: 10px;
+  height: 50px;
+  width: auto;
 }
 
 // Fonts
