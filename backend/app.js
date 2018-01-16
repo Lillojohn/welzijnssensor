@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const urlencodedparser = bodyParser.urlencoded({extended:false});
+const jsonparser = bodyParser.json();
 const nodemailer = require('./nodemailer.js');
 
 // Add headers
@@ -237,7 +237,7 @@ app.get('/user/:id', function (req, res) {
     userGet(req.params.id ,res);
 });
 
-app.post('/user', urlencodedparser, function (req, res) {
+app.post('/user', jsonparser, function (req, res) {
     userPost(req, res);
 });
 
@@ -253,7 +253,7 @@ app.post('/changestatus/:id', function(req, res){
     // changeStatusMelding(req.params.id, res);
 });
 
-app.post('/changeinstellingen/:id', urlencodedparser, function(req, res){
+app.post('/changeinstellingen/:id', jsonparser, function(req, res){
     changeInstellingen(req, res);
 });
 
