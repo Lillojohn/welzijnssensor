@@ -212,29 +212,25 @@ const changeInstellingen = function(req, res){
         Number.isInteger(wc) &&
         Number.isInteger(douche)
     ){
-        res.send("wc+douche");
-        // connection.query('UPDATE zorg_persoon SET wc = ?, douche = ? WHERE client_id = ?',[wc, douche, client], function (error, results, fields) {
-        //     if (error) throw error;
-        //     res.send({"status": 200, "error": null, "response": results});
-        // });
-
+        connection.query('UPDATE zorg_persoon SET wc = ?, douche = ? WHERE client_id = ?',[wc, douche, client], function (error, results, fields) {
+            if (error) throw error;
+            res.send({"status": 200, "error": null, "response": results});
+        });
     } else if (
         Number.isInteger(wc)
     ){
-        res.send("wc");
-        // connection.query('UPDATE zorg_persoon SET wc = ? WHERE client_id = ?',[wc, client], function (error, results, fields) {
-        //     if (error) throw error;
-        //     res.send({"status": 200, "error": null, "response": results});
-        // });
+        connection.query('UPDATE zorg_persoon SET wc = ? WHERE client_id = ?',[wc, client], function (error, results, fields) {
+            if (error) throw error;
+            res.send({"status": 200, "error": null, "response": results});
+        });
 
     } else if (
         Number.isInteger(douche)
     ){
-        res.send("douche");
-        // connection.query('UPDATE zorg_persoon SET douche = ? WHERE client_id = ?',[douche, client], function (error, results, fields) {
-        //     if (error) throw error;
-        //     res.send({"status": 200, "error": null, "response": results});
-        // });
+        connection.query('UPDATE zorg_persoon SET douche = ? WHERE client_id = ?',[douche, client], function (error, results, fields) {
+            if (error) throw error;
+            res.send({"status": 200, "error": null, "response": results});
+        });
     }
 };
 
