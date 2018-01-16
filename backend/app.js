@@ -253,7 +253,7 @@ app.post('/changestatus/:id', function(req, res){
     // changeStatusMelding(req.params.id, res);
 });
 
-app.post('/changeinstellingen/:id', function(req, res){
+app.post('/changeinstellingen/:id', urlencodedparser, function(req, res){
     changeInstellingen(req, res);
 });
 
