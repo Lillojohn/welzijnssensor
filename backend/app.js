@@ -208,35 +208,36 @@ const changeInstellingen = function(req, res){
     wc = req.body.wc;
     douche = req.body.douche;
 
-    res.send(req.body);
+    if(
+        (wc === true || wc !== "") &&
+        (douche === true || douche !== "")
+    ){
+        res.send("wc+douche");
+        // connection.query('UPDATE zorg_persoon SET wc = ?, douche = ? WHERE client_id = ?',[wc, douche, client], function (error, results, fields) {
+        //     if (error) throw error;
+        //     res.send({"status": 200, "error": null, "response": results});
+        // });
 
-    // if(
-    //     (wc === true || wc !== "") &&
-    //     (douche === true || douche !== "")
-    // ){
-    //     connection.query('UPDATE zorg_persoon SET wc = ?, douche = ? WHERE client_id = ?',[wc, douche, client], function (error, results, fields) {
-    //         if (error) throw error;
-    //         res.send({"status": 200, "error": null, "response": results});
-    //     });
-    //
-    // } else if (
-    //     (wc === true || wc !== "") &&
-    //     (douche === false || douche === "")
-    // ){
-    //     connection.query('UPDATE zorg_persoon SET wc = ? WHERE client_id = ?',[wc, client], function (error, results, fields) {
-    //         if (error) throw error;
-    //         res.send({"status": 200, "error": null, "response": results});
-    //     });
-    //
-    // } else if (
-    //     (wc !== true || wc === "") &&
-    //     (douche === true || douche !== "")
-    // ){
-    //     connection.query('UPDATE zorg_persoon SET douche = ? WHERE client_id = ?',[douche, client], function (error, results, fields) {
-    //         if (error) throw error;
-    //         res.send({"status": 200, "error": null, "response": results});
-    //     });
-    // }
+    } else if (
+        (wc === true || wc !== "") &&
+        (douche === false || douche === "")
+    ){
+        res.send("wc");
+        // connection.query('UPDATE zorg_persoon SET wc = ? WHERE client_id = ?',[wc, client], function (error, results, fields) {
+        //     if (error) throw error;
+        //     res.send({"status": 200, "error": null, "response": results});
+        // });
+
+    } else if (
+        (wc !== true || wc === "") &&
+        (douche === true || douche !== "")
+    ){
+        res.send("douche");
+        // connection.query('UPDATE zorg_persoon SET douche = ? WHERE client_id = ?',[douche, client], function (error, results, fields) {
+        //     if (error) throw error;
+        //     res.send({"status": 200, "error": null, "response": results});
+        // });
+    }
 };
 
 
