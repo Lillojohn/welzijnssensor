@@ -254,7 +254,7 @@ app.post('/changestatus/:id', function(req, res){
 });
 
 app.post('/changeinstellingen/:id', function(req, res){
-    changeInstellingen(req.params, res);
+    changeInstellingen(req.body, res);
 });
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
