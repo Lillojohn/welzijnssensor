@@ -204,11 +204,11 @@ const changeStatusMelding = function(id, res){
 };
 
 const changeInstellingen = function(req, res){
-    // wc = params.wc;
-    // douche = params.douche;
-    // client = params.id;
+    wc = req.body.wc;
+    douche = req.body.wc;
+    client = req.body.id;
 
-    res.send(req.body.wc);
+    res.send({"wc": wc});
     // connection.query('UPDATE zorg_persoon SET wc = ?, douche = ? WHERE client_id = ?',[wc, douche, client], function (error, results, fields) {
     //     if (error) throw error;
     //     res.send({"status": 200, "error": null, "response": results});
