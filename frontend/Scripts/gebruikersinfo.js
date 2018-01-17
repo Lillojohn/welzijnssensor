@@ -173,7 +173,7 @@ function changeInstellingen(water){
             url: 'http://188.226.175.24/changeinstellingen/',
             data: JSON.stringify({
                 id: userId,
-                wc: value
+                wc: Number(value)
             })
         });
     }
@@ -186,7 +186,7 @@ function changeInstellingen(water){
             url: 'http://188.226.175.24/changeinstellingen/' + data[i].melding_persoon_id,
             data: JSON.stringify({
                 id: userId,
-                douche: value
+                douche: (value)
             })
         });
     }
