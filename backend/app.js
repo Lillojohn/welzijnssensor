@@ -59,15 +59,18 @@ const userGet = function (clientId, res) {
 
 const userPost = function (req, res) {
     let address = req.body.address;
+    let name = req.body.name;
 
-    connection.query('INSERT INTO zorgusers (address) VALUES (?)', [address], function (error, results, fields) {
+    connection.query('INSERT INTO zorgusers (name, address) VALUES (?, ?)', [name, address], function (error, results, fields) {
         if (error) throw error;
         res.send({"status": 200, "error": null, "response": results});
     });
 };
 
 const meldingen = function (res) {
-    connection.query('SELECT * FROM zorg_meldingen_persoon INNER JOIN zorgmeldingen ON zorg_meldingen_persoon.melding_id=zorgmeldingen.melding_id;', function (error, results, fields) {
+    connection.query('SELECT * FROM zorg_meldingen_persoon \n' +
+        'INNER JOIN zorgmeldingen ON zorg_meldingen_persoon.melding_id=zorgmeldingen.melding_id\n' +
+        'INNER JOIN zorgusers ON zorg_meldingen_persoon.client_id=zorgusers.client_id;', function (error, results, fields) {
         if (error) throw error;
         res.send({"status": 200, "error": null, "response": results});
     });

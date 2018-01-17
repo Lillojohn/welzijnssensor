@@ -158,6 +158,24 @@ button {
 .uniekeGebruikerBox .uniekeGebruikerItem {
   margin-top: 50px; }
 
+.activiteitfrequentie {
+  position: relative;
+  color: #ffffff;
+  font-size: 20px; }
+  .activiteitfrequentie .highlight {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    margin-left: -216px;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    margin-top: -20px;
+    padding: 20px 0 20px 0;
+    background-color: #002b50; }
+  .activiteitfrequentie h2 {
+    margin-bottom: 20px; }
+
 .color1 {
   color: #67bff1; }
 

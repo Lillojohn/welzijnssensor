@@ -37,12 +37,14 @@ function addUser(e){
     e.preventDefault();
 
     adres = $('#adres').val();
+    name = $('#name').val();
 
     $.ajax({
         type: "POST",
         url: 'http://95.85.46.251/user',
         data: {
-            address: adres
+            address: adres,
+            name: name
         }
     });
 
