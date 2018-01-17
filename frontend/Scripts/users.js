@@ -38,21 +38,39 @@ function addUser(e){
 
     adres = $('#adres').val();
     name = $('#name').val();
-    wc = $('#wc').val();
-    douche = $('#douche').val();
+
 
     $.ajax({
         type: "POST",
-        url: 'http://95.85.46.251/user',
+        url: 'http://188.226.175.24/user',
         dataType: "JSON",
         contentType: "application/json",
         data: JSON.stringify({
             address: adres,
-            name: name,
-            wc: Number(wc),
-            douche: Number(douche)
-        })
+            name: name
+        }),
+        success: addInstelling
     });
 
-    window.location.href = "gebruikers.html";
+
+}
+
+function addInstelling(data){
+    id = data.response.insertId;
+    wc = Number($('#wc').val());
+    douche = Number($('#douche').val());
+
+    $.ajax({
+        type: "POST",
+        url: 'http://188.226.175.24/userInstelling',
+        dataType: "JSON",
+        contentType: "application/json",
+        data: JSON.stringify({
+            id: id,
+            wc: wc,
+            douche: douche
+        })
+    });
+    //
+    // window.location.href = "gebruikers.html";
 }

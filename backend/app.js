@@ -62,18 +62,20 @@ const userGet = function (clientId, res) {
 const userPost = function (req, res) {
     let address = req.body.address;
     let name = req.body.name;
-    let wc = req.body.wc;
-    let douche = req.body.douche;
 
     connection.query('INSERT INTO zorgusers (name, address) VALUES (?, ?)', [name, address], function (error, results, fields) {
         if (error) throw error;
         res.send({"status": 200, "error": null, "response": results});
-        userInstelling(req, res,results,wc, douche)
     });
 };
 
-const userInstelling = function (req, res,results, wc, douche) {
-    connection.query('INSERT INTO zorg_persoon (client_id, wc, douche) VALUES (?, ?, ?)', [results.response.insertId, wc, douche], function (error, results, fields) {
+const userInstelling = function (req, res) {
+
+    let id = req.body.id;
+    let wc = req.body.wc;
+    let douche = req.body.douche;
+
+    connection.query('INSERT INTO zorg_persoon (client_id, wc, douche) VALUES (?, ?, ?)', [id, wc, douche], function (error, results, fields) {
         if (error) throw error;
         res.send({"status": 200, "error": null, "response": results});
     });
@@ -274,6 +276,10 @@ app.get('/user/:id', function (req, res) {
 
 app.post('/user', jsonparser, function (req, res) {
     userPost(req, res);
+});
+
+app.post('/userInstelling',jsonparser, function (req, res) {
+    userInstelling(req, res);
 });
 
 app.get('/zorgdag/:id', function (req, res) {
