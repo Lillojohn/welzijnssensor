@@ -3,6 +3,8 @@
     var url = new URL(url_string);
     var userId = url.searchParams.get("user");
 
+    $('form button').on('click', changeSettings);
+
     $.ajax({
         type: "GET",
         url: 'http://188.226.175.24/user/' + userId,
@@ -140,4 +142,50 @@ function addZorgdag(data){
     //     // Configuration options go here
     //     options: {}
     // });
+}
+
+function changeSettings(e){
+    e.preventDefault();
+    if($(this).parent().find('input').attr('readonly')){
+        $(this).parent().find('input').prop('readonly', false);
+        $(this).find('img').prop('src', 'Assets/confirm.png');
+        $(this).parent().find('input').select();
+    } else {
+        $(this).parent().find('input').prop('readonly', true);
+        $(this).find('img').prop('src', 'Assets/change.png');
+        changeInstellingen($(this).parent().find('input'));
+    }
+}
+
+function changeInstellingen(water){
+    let name = water[0].name;
+    let value = water.val();
+
+    var url_string = window.location.href
+    var url = new URL(url_string);
+    var userId = url.searchParams.get("user");
+
+    if(name === "wc"){
+        $.ajax({
+            type: "POST",
+            dataType: "JSON",
+            url: 'http://188.226.175.24/changeinstellingen/',
+            data: {
+                id: userId,
+                wc: value
+            }
+        });
+    }
+
+    if(name === "douche"){
+        $.ajax({
+            type: "POST",
+            dataType: "JSON",
+            url: 'http://188.226.175.24/changeinstellingen/' + data[i].melding_persoon_id,
+            data: {
+                id: userId,
+                douche: value
+            }
+        });
+    }
 }

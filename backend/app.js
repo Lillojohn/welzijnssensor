@@ -211,6 +211,8 @@ const changeInstellingen = function(req, res){
     wc = req.body.wc;
     douche = req.body.douche;
 
+    console.log(req.body);
+
     if(
         Number.isInteger(wc) &&
         Number.isInteger(douche)
