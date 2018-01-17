@@ -38,14 +38,20 @@ function addUser(e){
 
     adres = $('#adres').val();
     name = $('#name').val();
+    wc = $('#wc').val();
+    douche = $('#douche').val();
 
     $.ajax({
         type: "POST",
         url: 'http://95.85.46.251/user',
-        data: {
+        dataType: "JSON",
+        contentType: "application/json",
+        data: JSON.stringify({
             address: adres,
-            name: name
-        }
+            name: name,
+            wc: Number(wc),
+            douche: Number(douche)
+        })
     });
 
     window.location.href = "gebruikers.html";

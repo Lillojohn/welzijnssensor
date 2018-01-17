@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const jsonparser = bodyParser.json();
 const nodemailer = require('./nodemailer.js');
 
+// Dit document is slecht geprogrammeerd, mijn excuses hiervoor!
+
 // Add headers
 app.use(function (req, res, next) {
 
@@ -60,12 +62,22 @@ const userGet = function (clientId, res) {
 const userPost = function (req, res) {
     let address = req.body.address;
     let name = req.body.name;
+    let wc = req.body.wc;
+    let douche = req.body.douche;
 
     connection.query('INSERT INTO zorgusers (name, address) VALUES (?, ?)', [name, address], function (error, results, fields) {
         if (error) throw error;
         res.send({"status": 200, "error": null, "response": results});
+        userInstelling(req, res,results,wc, douche)
     });
 };
+
+const userInstelling = function (req, res,results, wc, douche) {
+    connection.query('INSERT INTO zorg_persoon (client_id, wc, douche) VALUES (?, ?, ?)', [results.response.insertId, wc, douche], function (error, results, fields) {
+        if (error) throw error;
+        res.send({"status": 200, "error": null, "response": results});
+    });
+}
 
 const meldingen = function (res) {
     connection.query('SELECT * FROM zorg_meldingen_persoon \n' +
@@ -268,6 +280,7 @@ app.get('/zorgdag/:id', function (req, res) {
     zorgdag(req.params.id, res);
 });
 
+//Maakt meldingen aan
 app.get('/checkmeldingen', function (req, res) {
     checkMeldingen();
 });
