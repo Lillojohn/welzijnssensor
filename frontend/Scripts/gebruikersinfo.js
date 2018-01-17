@@ -169,11 +169,12 @@ function changeInstellingen(water){
         $.ajax({
             type: "POST",
             dataType: "JSON",
+            contentType: "application/json",
             url: 'http://188.226.175.24/changeinstellingen/',
-            data: {
+            data: JSON.stringify({
                 id: userId,
                 wc: value
-            }
+            })
         });
     }
 
@@ -181,11 +182,12 @@ function changeInstellingen(water){
         $.ajax({
             type: "POST",
             dataType: "JSON",
+            contentType: "application/json",
             url: 'http://188.226.175.24/changeinstellingen/' + data[i].melding_persoon_id,
-            data: {
+            data: JSON.stringify({
                 id: userId,
                 douche: value
-            }
+            })
         });
     }
 }
